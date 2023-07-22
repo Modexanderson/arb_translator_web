@@ -23,9 +23,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-7$hq&=yht+z2no%%$%6wf$dvi#k(4l5)v7wkngxqgp48me)+et'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'Modexanderson.github.io/arb_translator_web',
+]
 
 
 # Application definition
