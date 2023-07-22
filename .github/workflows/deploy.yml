@@ -18,7 +18,7 @@ jobs:
         run: |
           pip install -r requirements.txt
           python -m pip install --upgrade pip
-        working-directory: ./
+        working-directory: requirements.txt
 
       - name: Build and deploy
         run: |
