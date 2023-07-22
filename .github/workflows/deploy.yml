@@ -23,7 +23,6 @@ jobs:
 
       - name: Build and deploy
         run: |
-          cd arb_translator_project/ # Replace with the path to your Django project folder
           python manage.py collectstatic --noinput
           python manage.py migrate --noinput
           gunicorn arb_translator_project.wsgi
