@@ -12,7 +12,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: "3.9.7" # Replace 'x' with the Python version you're using
+          python-version: "3.9" # Replace 'x' with the Python version you're using
 
       - name: Install dependencies
         run: pip install -r requirements.txt
