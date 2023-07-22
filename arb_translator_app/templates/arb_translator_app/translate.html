@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block content %}
+  <form id="translateForm" method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
+    {% csrf_token %}
+
+    <div>
+      <p>Upload File (File format should look like this:)</p>
+      <pre>{ "key1": "value1", "key2": "value2", ... }</pre>
+    </div>
+    <label for="input_locale">Select Input Locale:</label>
+    <select name="input_locale" id="input_locale">
+      {% for lang_code, lang_name in supported_languages %}
+        <option value="{{ lang_code }}">{{ lang_name }}</option>
+      {% endfor %}
+    </select>
+
+    <label>Select Output Locales:</label>
+    <div style="display: flex; flex-wrap: wrap;">
+      {% for lang_code, lang_name in supported_languages %}
+        <label for="{{ lang_code }}">
+          <input type="checkbox" name="output_locales[]" id="output_locales" value="{{ lang_code }}" multiple />
+          {{ lang_name }}
+        </label>
+      {% endfor %}
+    </div>
+
+    <label for="arb_file">Upload File:</label>
+    <input type="file" name="arb_file" id="arb_file_input" />
+    <button type="submit">Translate and Download</button>
+  </form>
+{% endblock %}
+
+{% comment %} <!DOCTYPE html>
+<html>
+  <head>
+    <title>Upload ARB File</title>
+  </head>
+  <body>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <label for="input_locale">Select Input Locale:</label>
+      <select name="input_locale" id="input_locale">
+        {% for lang_code, lang_name in supported_languages %}
+          <option value="{{ lang_code }}">{{ lang_name }}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <label for="output_locales">Select Output Locales (hold Ctrl/Cmd to select multiple):</label>
+      <select name="output_locales[]" id="output_locales" multiple>
+        {% for lang_code, lang_name in supported_languages %}
+          <option value="{{ lang_code }}">{{ lang_name }}</option>
+        {% endfor %}
+      </select>
+      <br />
+      <label for="arb_file">Upload ARB File:</label>
+      <input type="file" name="arb_file" />
+      <button type="submit">Translate and Download</button>
+    </form>
+  </body>
+</html> {% endcomment %}

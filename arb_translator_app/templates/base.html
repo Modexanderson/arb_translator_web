@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARB Translator | Cupertino Studios</title>
+    <!-- Add any additional meta tags, stylesheets, or scripts here -->
+
+    <!-- Sample CSS Styles (Modify or add your own stylesheets) -->
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      
+      header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+      
+      nav {
+        display: flex;
+        justify-content: center;
+        background-color: #444;
+        padding: 5px;
+      }
+      
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 10px;
+      }
+      
+      nav a:hover {
+        background-color: #555;
+      }
+      
+      .content {
+        padding: 20px;
+      }
+      
+      footer {
+        text-align: center;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+      
+      form {
+        width: 90%;
+        max-width: 500px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #fff;
+      }
+      
+      label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+      }
+      
+      select,
+      input[type='file'],
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 14px;
+      }
+      
+      input[type='checkbox'] {
+        margin-right: 5px;
+      }
+      
+      button {
+        background-color: #3498db;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      button:hover {
+        background-color: #0074a6;
+      }
+
+      .btn-3d {
+        display: inline-block;
+        padding: 20px 60px;
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        text-transform: uppercase;
+        text-decoration: none;
+        border: none;
+        background-color: #3498db;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        width: 300px; /* Updated width to 60px */
+      }
+      
+      .btn-3d:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background-color: #0074a6;
+        transition: left 0.3s ease;
+        z-index: -1;
+      }
+      
+      .btn-3d:hover:before {
+        left: 0;
+      }
+  
+      /* Optional hover effects */
+      .btn-3d:hover {
+        background-color: #0074a6;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        transform: translateY(-2px);
+      }
+  
+      .btn-3d:active {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transform: translateY(0);
+      }
+      
+      header a {
+        color: #0088cc; /* Change the color to your desired color */
+        text-decoration: none;
+      }
+      
+      header a:hover {
+        color: #0066aa; /* Change the color for the link when hovered */
+      }
+      footer a {
+        color: #0088cc; /* Change the color to your desired color */
+        text-decoration: none;
+      }
+      
+      footer a:hover {
+        color: #0066aa; /* Change the color for the link when hovered */
+      }
+    </style>
+    <script>
+      function validateForm() {
+        const fileInput = document.getElementById('arb_file_input')
+        if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+          alert('Please select an .arb file.')
+          return false
+        }
+        return true
+      }
+    </script>
+    {% comment %}For checking fileExtension validation{% endcomment %}
+    {% comment %} <script>
+          function validateForm() {
+            const fileInput = document.getElementById('arb_file_input');
+            if (!fileInput || !fileInput.files || fileInput.files.length === 0) {
+              alert('Please select an .arb file.');
+              return false;
+            }
+        
+            const fileName = fileInput.files[0].name;
+            const validExtensions = ['.arb'];
+            const fileExtension = fileName.substring(fileName.lastIndexOf('.')).toLowerCase();
+            if (!validExtensions.includes(fileExtension)) {
+              alert('Please select a valid .arb file.');
+              return false;
+            }
+        
+            return true;
+          }
+        </script> {% endcomment %}
+  </head>
+  <body>
+    <header>
+      <h1>ARB Translator</h1>
+      <a href="https://cupertinostudios.online" target="_blank">Powered by Cupertino Studios</a>
+    </header>
+
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'translator' %}">Translator</a>
+      <a href="mailto:cupertinostudios@gmail.com" target="_blank">Contact</a> <!-- Contact Us button -->
+      <!-- Add more navigation links as needed -->
+    </nav>
+
+    <div class="content">
+      <!-- This is where the content for individual pages will go -->
+      {% block content %}
+
+      {% endblock %}
+    </div>
+
+    <footer>
+      &copy; {{ year }} ARB Translator | Powered by <a href="https://cupertinostudios.online" target="_blank">Cupertino Studios</a>
+    </footer>
+  </body>
+</html>
