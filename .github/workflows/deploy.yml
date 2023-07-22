@@ -3,26 +3,24 @@ name: Deploy
 on:
   push:
     branches:
-      - master  # Change this to your main branch name if it's different
+      - master # Change this to your main branch name if it's different
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Set up Python
-      uses: actions/setup-python@v2
-      with:
-        python-version: '3.9.7'  # Replace 'x' with the Python version you're using
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.9.7" # Replace 'x' with the Python version you're using
 
-    - name: Install dependencies
-      run: pip install -r requirements.txt
+      - name: Install dependencies
+        run: pip install -r requirements.txt
 
-    - name: Build and deploy
-      run: |
-        python manage.py collectstatic --noinput
-        python manage.py migrate --noinput
-        gunicorn arb_translator_project.wsgi
-    ```
+      - name: Build and deploy
+        run: |
+          python manage.py collectstatic --noinput
+          python manage.py migrate --noinput
+          gunicorn arb_translator_project.wsgi
 
   # Replace `your_project_name` with the name of your Django project.
-
