@@ -9,7 +9,7 @@ def home_view(request):
     context = {
         # You can add any data you want to display on the home page here
     }
-    return render(request, 'arb_translator_app/home.html', context)
+    return render(request, 'arb_translator_app/index.html', context)
 
 def about_view(request):
     # Add any context data you want to pass to the template
