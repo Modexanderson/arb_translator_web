@@ -27,7 +27,8 @@ SECRET_KEY = 'django-insecure-7$hq&=yht+z2no%%$%6wf$dvi#k(4l5)v7wkngxqgp48me)+et
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'Modexanderson.github.io/arb_translator_web',
+    # 'Modexanderson.github.io/arb_translator_web',
+    '*'
 ]
 
 
