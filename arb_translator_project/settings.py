@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'arb_translator_app',
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
